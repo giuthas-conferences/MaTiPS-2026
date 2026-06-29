@@ -1,0 +1,236 @@
+\ProvidesPackage{beamerthemeI6pd2}  % this style was created by Thomas Deselaers an Philippe Dreuw
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{tangocolors}
+\selectcolormodel{cmyk}
+\mode<presentation>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamercolor{headline}{fg=white,bg=ta3gray}
+\setbeamercolor{footline}{fg=tabutter, bg=ta3gray}
+\setbeamerfont{footline}{size=\large,series=\tt}
+\setbeamercolor{separation line}{bg=tachameleon}
+\setbeamercolor{title in headline}{fg=tachameleon}
+\setbeamercolor{author in headline}{fg=ta2aluminium}
+\setbeamercolor{institute in headline}{fg=ta2aluminium}
+
+\setbeamercolor{framesubtitle}{fg=ta3orange, bg=ta2gray}
+\setbeamercolor{author in head/foot}{fg=ta2aluminium, bg=ta3gray}
+\setbeamercolor{title in head/foot}{fg=ta2aluminium, bg=ta3gray}
+
+\setbeamercolor*{normal text}{fg=tachameleon, bg=ta3gray}
+\setbeamercolor*{block body}{bg=white,fg=black}
+\setbeamercolor*{block title}{fg=white,bg=ta2gray}
+\setbeamerfont{block title}{size=\large,series=\bf}
+\setbeamercolor{upper separation line head}{fg=ta2orange}
+
+\setbeamercolor*{example body}{fg=ta3aluminium,bg=black}
+\setbeamercolor*{example text}{fg=ta3aluminium,bg=black}
+\setbeamercolor*{example title}{bg=taorange,fg=ta2gray}
+
+%\setbeamercolor{alerted text}{fg=ta3gray}
+
+%\setbeamercolor{example text}{fg=taorange}
+\setbeamercolor{structure}{fg=ta3skyblue}
+
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+
+
+%%%%%%%%%%%
+
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{scopes}
+
+\makeatletter
+
+\newif\ifpuzzle@hole
+\newif\ifpuzzle@hole@A
+\newif\ifpuzzle@hole@B
+\newif\ifpuzzle@hole@C
+\newif\ifpuzzle@hole@D
+\def\puzzle@width{0.25cm}
+\def\puzzle@height{0.20cm}
+\def\puzzle@holes{true,true,false,false}
+\def\puzzle@set@hole@A#1,#2,#3,#4,{\csname puzzle@hole@A#1\endcsname}
+\def\puzzle@set@hole@B#1,#2,#3,#4,{\csname puzzle@hole@B#2\endcsname}
+\def\puzzle@set@hole@C#1,#2,#3,#4,{\csname puzzle@hole@C#3\endcsname}
+\def\puzzle@set@hole@D#1,#2,#3,#4,{\csname puzzle@hole@D#4\endcsname}
+\pgfkeys{/puzzle/width/.store in=\puzzle@width}                      
+\pgfkeys{/puzzle/height/.store in=\puzzle@height}                    
+\pgfkeys{/puzzle/holes/.store in=\puzzle@holes}                      
+
+\def\tikzIsFun{
+    \foreach \x in {0,1,2} {
+        \foreach \y in {1,2} {
+            \draw[puzzle piece,thick] (1.5*\x,\y) to +(1.5,1.0);
+        }                                                                    
+    }                                                                        
+    \foreach \xy in {1,2} {                                                  
+       \draw[puzzle piece,thick] (0,\xy) to +(1.5,1.0);                      
+       \draw[puzzle piece,thick] (1.5*\xy,0) to +(1.5,1.0);                  
+    }                                                                        
+    \draw (2.25,1.5) node {\texttt{tikz} is fun};            
+}                                                                            
+
+\def\drawPuzzleSide#1#2#3{%
+    let \p{mid}=($(#1)!0.5!(#2)$),
+        \p{diff}=($(#2)-(#1)$),   
+        \p{diff 90}=($(0,0)!1.0!\csname ifpuzzle@hole@#3\endcsname90\else270\fi:(\p{diff})$),                                                                   
+        \n{len}={veclen(\x{diff},\y{diff})},                                    
+        \n{height}={\puzzle@height},                                            
+        \n{width}={\puzzle@width},                                              
+        \p{dy}=($(\n{height}*\x{diff 90}/\n{len},\n{height}*\y{diff 90}/\n{len})$),                                                                             
+        \p{dx}=($(\n{width}*\x{diff}/\n{len},\n{width}*\y{diff}/\n{len})$),     
+        \p{xx}=($(\p{diff})-(\p{dx})$),                                         
+        \p{11}=($(#1)+0.50*(\p{xx})-0.020*(\p{diff 90})$),                      
+        \p{12}=($(#1)+0.35*(\p{xx})-0.030*(\p{diff 90})$),                      
+        \p{13}=($(\p{mid})-0.5*(\p{dx})-0.030*(\p{diff 90})$),                  
+        \p{21}=($(#2)-0.20*(\p{xx})-0.020*(\p{diff 90})$),                      
+        \p{22}=($(#2)-0.35*(\p{xx})-0.030*(\p{diff 90})$),                      
+        \p{23}=($(\p{mid})+0.5*(\p{dx})-0.030*(\p{diff 90})$),                  
+        \p{14}=($(\p{13})+0.60*(\p{dx})+0.80*(\p{dy})$),                        
+        \p{24}=($(\p{23})-0.60*(\p{dx})+0.80*(\p{dy})$),                        
+        \p{00}=($(\p{mid})+(\p{dy})$),                                          
+        \p{15}=($(\p{00})-1.6*(\p{dx})-0.04*(\p{dy})$),                         
+        \p{25}=($(\p{15})!2.0!(\p{00})$)                                        
+    in .. controls (\p{11}) and (\p{12}) .. (\p{13})                            
+       .. controls (\p{14}) and (\p{15}) .. (\p{00})                            
+       .. controls (\p{25}) and (\p{24}) .. (\p{23})                            
+       .. controls (\p{22}) and (\p{21}) .. (#2)                                
+}                                                                               
+
+\def\puzzle@set@holes{%
+    \expandafter\puzzle@set@hole@A\puzzle@holes,
+    \expandafter\puzzle@set@hole@B\puzzle@holes,
+    \expandafter\puzzle@set@hole@C\puzzle@holes,
+    \expandafter\puzzle@set@hole@D\puzzle@holes,
+}
+\def\drawPuzzlePiece{%
+   let \p1=(\tikztostart),
+       \p2=(\tikztotarget) in
+    (\p1) \drawPuzzleSide{\p1}{\p1-|\p2}{A}
+          \drawPuzzleSide{\p1-|\p2}{\p2}{B}
+          \drawPuzzleSide{\p2}{\p1|-\p2}{C}
+          \drawPuzzleSide{\p1|-\p2}{\p1}{D}
+}
+
+\tikzset{test/.style={to path={\drawPuzzlePiece}}}
+\tikzset{puzzle piece/.style={to path={\drawPuzzlePiece},
+                              execute at begin to=\puzzle@set@holes}}
+
+\makeatother
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{block begin}{
+  \vskip.75ex
+  \begin{beamercolorbox}[ht=3.5ex,dp=0.5ex,center,leftskip=-1em,colsep*=.75ex]{block title}%
+    \usebeamerfont*{block title}%
+    {\phantom{Gg}\insertblocktitle}% phantom because of baseline problem
+  \end{beamercolorbox}%
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[leftskip=1em,colsep*=.75ex,sep=0.5ex,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{  
+  \leavevmode
+
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{columns}[T]
+      \begin{column}{1\paperwidth}
+        \vskip4ex
+        \begin{center}
+        \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+        \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+        \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}     
+        \end{center}
+      \end{column}
+      \begin{column}{.25\paperwidth}
+        \vskip8ex
+        \begin{center}
+    %      \includegraphics[width=.95\linewidth]{figures/deselaers/logos/uomlogo.jpg}
+        \end{center}
+        \vskip2ex
+      \end{column}
+    \end{columns}
+    \vskip2ex
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{3pt}
+  \end{beamercolorbox}
+}
+
+%  \setbeamertemplate{headline}{  
+%    \leavevmode
+%    \begin{beamercolorbox}[sep=0.5cm,wd=.8\paperwidth]{headline}
+%      \usebeamercolor{title in headline}{\raggedleft\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+%      \usebeamercolor{author in headline}{\raggedleft\color{fg}\large{\insertauthor}\\[1ex]}
+%      \usebeamercolor{institute in headline}{\raggedleft\color{fg}\large{\insertinstitute}\\[1ex]}     
+%    \end{beamercolorbox}%
+%    \begin{beamercolorbox}[wd=.2\paperwidth]{logo in headline}
+%      \centering
+%      \LARGE{LOGO}
+%    \end{beamercolorbox}  
+
+
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+    \rule{0pt}{3pt}
+  \end{beamercolorbox}
+  
+  \leavevmode%
+  \begin{beamercolorbox}[ht=4ex,leftskip=1em,rightskip=1em]{author in head/foot}%
+ %   \texttt{http://www-i6.informatik.rwth-aachen.de}
+    \hfill
+    % \texttt{$^{\mathrm{a}}$pertti.palo@taurlin.org, $^{\mathrm{b}}$sschaeffler@qmu.ac.uk,
+    % $^{\mathrm{c}}$jscobbie@qmu.ac.uk}
+    \texttt{{\emails}}
+    \vskip1ex
+  \end{beamercolorbox}
+  \vskip0pt%
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+    \rule{0pt}{3pt}
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Display a grid to help align images ... and it looks nice with this color scheme
+%\beamertemplategridbackground[1cm]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<all>
+
+% adapt height of imtemize rectangles
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{itemize item}{\raisebox{0.12ex}{$\blacktriangleright$}\hskip0.1em}
+\setbeamertemplate{itemize subitem}{\raisebox{0.12ex}{$\triangleright$}\hskip0.1em}
+% or define your own template using \defbeamertemplate{itemize item}, see beameruserguide.pdf
+
+% equal font sizes for all levels
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\normalsize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-master: "poster-surf"
+%%% End: 

@@ -1,0 +1,204 @@
+\documentclass[final,hyperref={pdfpagelabels=false}]{beamer}
+\mode<presentation>{\usetheme{I6pd2}}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usepackage[orientation=portrait,size=a0,debug]{beamerposter}
+\usepackage{xcolor,colortbl}
+\usepackage{tipa}
+\usepackage{natbib}
+\usepackage{multirow}
+\usepackage{subfig}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{scopes}
+
+%\usepackage{grffile}
+%\usefonttheme[onlymath]{serif}
+%\boldmath
+% change list indention level
+% \setdefaultleftmargin{3em}{}{}{}{}{}
+
+\bibpunct[:]{(}{)}{,}{a}{}{,}
+\newcommand{\ipa}[1]{\textipa{#1}} 
+
+\usepackage{snapshot} % will write a .dep file with all dependencies, allows for easy bundling
+
+\usepackage{array,booktabs,tabularx}
+\newcolumntype{Z}{>{\centering\arraybackslash}X} % centered tabularx columns
+\newcommand{\pphantom}{\textcolor{ta3aluminium}} % phantom introduces a vertical space in p formatted table columns??!!
+\listfiles
+
+%%%%
+%%%%%%
+\makeatletter
+\define@key{beamerframe}{t}[true]{% top
+  \beamer@frametopskip=.2cm plus .5\paperheight\relax%
+  \beamer@framebottomskip=0pt plus 1fill\relax%
+  \beamer@frametopskipautobreak=\beamer@frametopskip\relax%
+  \beamer@framebottomskipautobreak=\beamer@framebottomskip\relax%
+% \def\beamer@initfirstlineunskip{%
+%   \def\beamer@firstlineitemizeunskip{%
+%     \vskip-\partopsep\vskip-\topsep\vskip-\parskip%
+%     \global\let\beamer@firstlineitemizeunskip=\relax}%
+%   \everypar{\global\let\beamer@firstlineitemizeunskip=\relax}}
+  \def\beamer@initfirstlineunskip{}%
+}
+\makeatother
+
+\graphicspath{{figures/}}
+ 
+\title{\huge Title}
+\author{Pertti Palo$^{\mathrm{a}}$ and Steven Lulich$^{\mathrm{b}}$}
+\newcommand{\emails}{$^{\mathrm{a}}$pertti.palo@taurlin.org, $^{\mathrm{b}}$slulich@indiana.edu}
+\institute{Department of Speech, Language and Hearing Sciences, Indiana University, Bloomington, IN}
+\date{6th October 2021}
+
+\newlength{\columnheight}
+\setlength{\columnheight}{105cm}
+
+\newcommand{\kommentti}[1]{{\bf[#1]}}
+
+
+\begin{document}
+
+\begin{frame}{} 
+  \vspace{-1cm}
+  \begin{columns}[t]
+    \begin{column}{.45\linewidth}
+      
+      \begin{block}{Introduction: What do we know about acoustic
+          reaction times?}
+
+        \begin{columns}
+          \hspace*{-.25cm}
+          \begin{column}{.3\textwidth}
+            \begin{itemize}
+            \item \cite{RastleEtAl-CharacterizingMotorExecution-2005} measured
+            delayed naming reaction times.
+            \item They report Acoustic RTs and onset durations (OD) for all
+              phonotactically legal English consonant onsets.
+            \item The inverse correlation pattern was first discovered by
+              \cite{Fowler-PerceptualCentersSpeech-1979}.
+            \end{itemize}
+          \end{column}
+          \begin{column}{.6\textwidth}
+            \kommentti{Rastle figure here.}
+            % \vspace*{.5cm}
+            % \input{figures/Rastle_ICPhS.tex}
+          \end{column}
+        \end{columns}
+      \end{block}
+
+      \begin{block}{Materials: The Experiment} 
+
+        'Simple' task of finding acoustic and movement onsets in
+        simultaneously recorded sound data and articulatory data from
+        Ultrasound Tongue Imaging (UTI).
+
+        /CVC/ and /VC/ English lexical words produced by one
+        male speaker: {\em at, eat, ought, back, beat, bought, dat, deep,
+          dot, fat, feet, fought, gap, geek, got, hat, heat, hot, cat,
+          keep, caught, lack, leap, lot, map, meet, mock, nat, neat, not,
+          pack, Pete, pop, rat, reap, rock, sat, seat, sought, shack,
+          sheet, shop, tap, teak, talk, whack, wheat,} and {\em what}.
+      \end{block}
+      
+      \begin{block}{Methods: Recording and annotation}\footnotesize
+        \begin{itemize}
+        \item \kommentti{Say something about methods.}
+        \end{itemize}
+      \end{block}
+
+      \begin{block}{Results: Acoustic RTs}
+        \begin{itemize}
+        \item Acoustic RT (AcRT) behaves as expected
+          \citep{RastleEtAl-CharacterizingMotorExecution-2005,
+          MooshammerEtAl-BridgingPlanningExecution-2012}.
+        \item Statistical analysis yields an expected result
+          \citep{Fowler-PerceptualCentersSpeech-1979,
+          RastleEtAl-CharacterizingMotorExecution-2005}:
+          AcRT $\sim -\frac{1}{2}$ OD.
+        \end{itemize}
+      \end{block}
+
+    \end{column}
+    \begin{column}{.45\linewidth}
+          
+      \begin{block}{Results: Articulatory to Acoustic Interval (AAI)}
+        \begin{itemize}
+        \item Again statistical analysis yields: AAI $\sim
+          -\frac{1}{2}$ OD.
+        \item However, a better predictor for AAI than OD is phoneme.
+        \end{itemize}
+        % \vspace*{.5cm}
+        % \begin{center}
+        %   \input{figures/OD_vs_AAI.tex}
+        % \end{center}
+      \end{block}
+
+      \begin{block}{Discussion: Future work}
+
+        \begin{itemize}
+        \item There is no data like more data.
+        \end{itemize}
+      \end{block}
+
+    \end{column}
+  \end{columns}
+      
+  \vspace*{1cm}
+  
+  \begin{columns}
+    \begin{column}{.945\linewidth}
+
+      \begin{block}{References}
+
+        \footnotesize
+        % This needs to be replaced by a symlink or a fresh copy.
+        \bibliography{main.bib}
+        \bibliographystyle{apalike}
+
+      \end{block}
+
+      \vspace*{1cm}
+
+      \begin{block}{Acknowledgements}
+        %\footnotesize
+        \begin{minipage}{0.5\textwidth}
+          % \includegraphics[scale=1]{figures/rbo.jpg}
+          We wish to thank Steve Cowen for assistance with the
+          ultrasound recordings and Professor Alan Wrench for advice
+          and help with using AAA.
+        \end{minipage}
+        % \begin{minipage}{0.5\textwidth}
+        %   \hspace{10cm}\includegraphics[height=3.5cm]{figures/CASL_Sub_logo.jpg} 
+        % \end{minipage}
+      \end{block}
+    \end{column}
+  \end{columns}
+
+  
+\end{frame}
+
+
+\end{document}
+
+        % {Connection with speech cycling}
+        % \begin{center}
+        %   \includegraphics[width=.7\columnwidth]{Fowler_cycling}
+        % \end{center}
+        % \begin{itemize}
+        % \item Figure from \cite{Fowler:NMC:1981}.
+        % \item Metronome click at 0 ms.
+        % \item Relevant intervals are: 1. silence between words, 3. onset
+        %   consonant, and 4. vowel.
+        % \end{itemize}
+
+        % {Future work and questions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% End:
