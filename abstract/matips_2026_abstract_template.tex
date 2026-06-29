@@ -1,0 +1,96 @@
+\documentclass[a4paper,12pt]{article}
+
+% Font configuration for Times New Roman
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+
+% Page geometry settings (25mm top/bottom, 20mm left/right)
+\usepackage[top=25mm, bottom=25mm, left=20mm, right=20mm]{geometry}
+
+% Remove page numbers, headers, and footers
+\pagestyle{empty}
+
+% Optional packages for tables and graphics
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+% Custom command for run-in headings
+\newcommand{\heading}[1]{%
+  \noindent\textbf{#1} %
+}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\begin{document}
+
+% Top Matter
+\begin{center}
+    {\fontsize{13.4pt}{12pt}\selectfont 
+    \textbf{Abstract Template for Methods and Techniques in Phonetics Sciences (MaTiPS) 2026}\par}
+    % \vspace{1em}
+    {\fontsize{12pt}{10pt}\selectfont
+    Author Full Name$^{1}$, Co-author Full Name$^{2}$\par
+    \vspace{0.25em}
+    $^{1}$Affiliation\\
+    $^{2}$Affiliation\par
+    \vspace{0.25em}
+    Author 1 email address, Author 2 email address\par
+    \vspace{-0.75em}
+    }
+\end{center}
+
+\heading{General format.}
+This is the template for MaTiPS 2026 conference abstracts. Abstracts may be up
+to 2 A4-size pages long, including text, figures, tables, and references. The
+top matter (title, authors, affiliations, email addresses) must be formatted as
+in this template (the number of lines needed for the top matter will depend on
+the length of the title and the number of authors). The beginning of the
+abstract must be separated from the top matter by a blank line. All text should
+be in Times New Roman font. The title is 14-point font, all other text is
+12-point font. Margins are 25 mm (.98") top and bottom, and 20 mm (.79") left
+and right. Footers and headers are not allowed. Do not use page numbers. 
+
+All abstracts must be submitted in PDF format in compliance with the provided
+template.The PDF file name should be structured as follows: 
+
+\noindent\texttt{MaTiPS2026\_<presentation preference, i.e. Poster, Oral, or Either>\_<1st author's last name>\_<short title without spaces, e.g. AbstractTemplate>.pdf}
+
+For example: \texttt{MaTiPS2026\_Oral\_Lulich\_AbstractTemplate.pdf}
+
+\heading{Headings.}
+Headings are in bold font with the first word capitalized and the rest of the
+heading in lower case. Text follows without line break. No sub-headings.
+
+\heading{Figures and tables.}
+Figures and tables should be of high visual quality. No screenshots. Tables
+should be created directly within the template.
+
+
+
+\setlength{\leftmargin}{1.5em}%
+\setlength{\itemindent}{-1.5em}%
+\setlength{\parsep}{0pt}%
+\setlength{\itemsep}{0.2em}%
+
+\noindent\textbf{References}\\
+References should start on the line immediately after the {\bf  References} header, and should be
+formatted with hanging indentation. Use a consistent format for references and inline citations.
+
+% Custom environment for hanging indentation references
+\newenvironment{reflist}{%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{1.5em}%
+    \setlength{\itemindent}{-1.5em}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\itemsep}{0.2em}%
+  }
+}{%
+  \end{list}
+}
+\begin{reflist}
+\item Author, A. A. (2026). Title of reference. \textit{Journal Name}, Volume, Page range.
+\item Use a consistent format for references and inline citations.
+\end{reflist}
+
+\end{document}
