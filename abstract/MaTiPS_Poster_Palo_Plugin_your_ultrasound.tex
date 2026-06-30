@@ -20,6 +20,8 @@
   \noindent\textbf{#1}%
 }
 
+\newcommand{\kommentti}[1]{{\bf[#1]}}
+
 \setlength{\parskip}{1em}
 \setlength{\parindent}{0em}
 
@@ -42,21 +44,18 @@
 \end{center}
 
 \heading{Introduction.}
-
-\begin{itemize}
-  \item \citep{ShawkerSonies-UltrasoundBiofeedbackSpeech-1985,Stone-GuideAnalyzingTongue-2005}
-  \item Telemed devices are widely used these days. While the manual says to
-  use mains power (connect the device's power source to a wall socket) it does
-  not say why, and the device will work with just power from the USB-connection
-  to a computer. We discovered by accident why this recommendation exists.
-\end{itemize}
-
+Ultrasound has been used for speech studies for decades
+\citep{ShawkerSonies-UltrasoundBiofeedbackSpeech-1985,Stone-GuideAnalyzingTongue-2005}
+In recent years Telemed micro ultrasound devices have become something of a
+norm \kommentti{cite 3-4 studies}. While the manual says to use mains power
+(connect the device's power source to a wall socket) it does not say why, and
+the device will work with just power from the USB-connection to a computer. We
+discovered by accident why this recommendation exists.
 
 \heading{Purpose.}
 This presentation provides a description of the consequences to data quality,
 description of how to detect if old data has been compromised and a
 recommendation for future data recording.
-
 
 \heading{Method.}
 
@@ -89,6 +88,7 @@ electricity,
 \setlength{\itemsep}{0.2em}%
 
 \heading{References.}
+\vspace{-1.2em}
 \renewcommand{\bibsection}{}
 \renewcommand{\doiprefix}{}
 \bibliographystyle{apacite}
