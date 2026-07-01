@@ -50,10 +50,11 @@ In recent years Telemed micro ultrasound devices have become something of a
 norm \kommentti{cite 3-4 studies}. While the manual says to use mains power
 (connect the device's power source to a wall socket) it does not say why, and
 the device will work with just power from the USB-connection to a computer. We
-discovered by accident why this recommendation exists.
-
-\heading{Purpose.}
-This presentation provides a description of the consequences to data quality,
+discovered by accident why this recommendation exists: When running on USB
+power the ultrasound device will raise imaging power by steps during each
+recording. This is done to avoid setting off a short circuit panic mode in the
+USB port. Unfortunately, the stepping of intensity has consequences for data
+quality. This presentation provides a description of the consequences, a
 description of how to detect if old data has been compromised and a
 recommendation for future data recording.
 
@@ -94,6 +95,7 @@ electricity,
 \bibliographystyle{apacite}
 \bibliography{science_combined}
 
+\kommentti{fix 'unpublished'}
 
 % Custom environment for hanging indentation references
 % \newenvironment{reflist}{%
