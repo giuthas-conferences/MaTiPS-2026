@@ -60,10 +60,12 @@ recommendation for future data recording.
 
 \heading{Method.}
 
+
 \begin{itemize}
   \item PD \citep{Palo-MeasuringPrespeechArticulation-2019}
-  \item DeepLabCut \citep{WrenchBalch-Tomes-EdgeMarkerlessPose-2022}
-  \item slurpy
+  \item PATKIT \citep{PaloEtAl-PATKITPhoneticAnalysis-2026}
+  % \item DeepLabCut \citep{WrenchBalch-Tomes-EdgeMarkerlessPose-2022}
+  % \item slurpy
 \end{itemize}
 
 
@@ -88,8 +90,8 @@ recommendation for future data recording.
 
 \begin{itemize}
   \item example of bad data in PD
-  \item example of sneakily bad data in PD
-  \item similar for splining/image quality
+  % \item example of sneakily bad data in PD
+  % \item similar for splining/image quality
 \end{itemize}
 
 \heading{Conclusion.}
@@ -98,7 +100,12 @@ power when ever possible and if you need to run it with only USB power, make a
 note of that in your recording metadata / laboratory journal. 
 
 For old data, if you do not know that the device was plugged in to mains
-electricity,  
+electricity, there are two ways of checking if there is a problem with data
+quality. First, play a recording and look at the data. If the ultrasound image
+seems to get brighter they may be a problem. Second, examine the PD curves in
+AAA or PATKIT. You may need to look at more than one recording to see if
+intensity is going up step-wise like in Figure~\ref{fig:pd}. In case the
+intensity is ramping up, any intensity based measures might be unreliable.
 
 \setlength{\leftmargin}{1.5em}%
 \setlength{\itemindent}{-1.5em}%
@@ -112,7 +119,7 @@ electricity,
 \bibliographystyle{apacite}
 \bibliography{science_combined}
 
-\kommentti{fix 'unpublished'}
+% \kommentti{fix 'unpublished'}
 
 % Custom environment for hanging indentation references
 % \newenvironment{reflist}{%
