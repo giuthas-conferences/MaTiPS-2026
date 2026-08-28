@@ -1,0 +1,10 @@
+Metadata for Ultrasound frame exported by patkit 0.22.3 to
+	/home/jpalo/tyot/source/patkit-for-pub/ultrasound_begin.png.
+
+Session path: /home/jpalo/tyot/projects/koartikulaatio_typologia/data/soveltava_fon_2022/fin-1-2-exp
+Participant ID: 
+Recording filename: File008.Recording.meta
+Recorded at: 2022-04-08 06:15:50
+Prompt: usu
+Frame number: 11
+Timestamp in recording: 0.3234529975979996

@@ -1,0 +1,8 @@
+Metadata for main GUI figure exported by patkit 0.22.3 to
+	/home/jpalo/tyot/source/patkit-for-pub/ramping_up.png.
+
+Session path: /home/jpalo/tyot/projects/koartikulaatio_typologia/data/soveltava_fon_2022/fin-1-2-exp
+Participant ID: 
+Recording filename: File002.Recording.meta
+Recorded at: 2022-04-08 06:13:49
+Prompt: purulevy .
