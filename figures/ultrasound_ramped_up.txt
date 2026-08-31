@@ -1,10 +1,10 @@
 Metadata for Ultrasound frame exported by patkit 0.22.3 to
-	/home/jpalo/tyot/source/patkit-for-pub/ultrasound_ramped_up.png.
+	/home/jpalo/tyot/source/patkit-for-pub/2026-MaTiPS/figures/ultrasound_ramped_up.png.
 
-Session path: /home/jpalo/tyot/projects/koartikulaatio_typologia/data/soveltava_fon_2022/fin-1-2-exp
-Participant ID: 
-Recording filename: File002.Recording.meta
-Recorded at: 2022-04-08 06:13:49
-Prompt: purulevy .
-Frame number: 118
-Timestamp in recording: 1.708214238012555
+Session path: /home/jpalo/tyot/presentations/2026-MaTiPS/ultrasound-power-testing-export
+Participant ID: Pertti
+Recording filename: File021.Recording.meta
+Recorded at: 2026-08-28 14:00:02
+Prompt: hold still
+Frame number: 126
+Timestamp in recording: 1.729804083922061
