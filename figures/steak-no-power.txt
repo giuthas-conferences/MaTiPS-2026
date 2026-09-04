@@ -1,0 +1,8 @@
+Metadata for main GUI figure exported by patkit 0.22.3 to
+	/home/jpalo/tyot/source/patkit-for-pub/steak-no-power.png.
+
+Session path: /home/jpalo/tyot/presentations/2026-MaTiPS/ultrasound-power-testing-2
+Participant ID: Powertesting
+Recording filename: File141.Recording.meta
+Recorded at: 2026-09-02 15:38:18
+Prompt: steak
