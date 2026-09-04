@@ -1,10 +1,10 @@
 Metadata for Ultrasound frame exported by patkit 0.22.3 to
 	/home/jpalo/tyot/source/patkit-for-pub/2026-MaTiPS/figures/ultrasound_begin.png.
 
-Session path: /home/jpalo/tyot/presentations/2026-MaTiPS/ultrasound-power-testing-export
-Participant ID: Pertti
-Recording filename: File021.Recording.meta
-Recorded at: 2026-08-28 14:00:02
-Prompt: hold still
-Frame number: 10
-Timestamp in recording: 0.309592809733036
+Session path: /home/jpalo/tyot/presentations/2026-MaTiPS/local/ultrasound-power-testing-2
+Participant ID: Powertesting
+Recording filename: File141.Recording.meta
+Recorded at: 2026-09-02 15:38:18
+Prompt: steak
+Frame number: 14
+Timestamp in recording: 0.36499810137966404
