@@ -66,43 +66,54 @@
   \begin{columns}[t]
     \begin{column}{.45\linewidth}
       
-      \begin{block}{Introduction: What do we know about acoustic
-          reaction times?}
+      \begin{block}{Introduction}
+        Ultrasound has been used for speech studies for decades
+        \citep{ShawkerSonies-UltrasoundBiofeedbackSpeech-1985,Gick-UseUltrasoundLinguistic-2002,Stone-GuideAnalyzingTongue-2005}
+        In recent years Telemed micro ultrasound devices have become something of a
+        norm. While the manual says to use mains power (connect the ultrasound device's
+        power source to a wall socket) it does not say why, and the device will work
+        with just power from the USB-connection to a computer.
+        We discovered by accident why this recommendation exists: When running on USB
+        power the ultrasound device will raise imaging power by steps during each
+        recording. According to Telemed, this is done to avoid setting off a short
+        circuit panic-mode in the USB port. Unfortunately, the stepping of intensity
+        has consequences for data quality. Imaging with lower power produces darker
+        images. In practice this means that at the beginning of the recording the
+        ultrasound image will brighten in steps. This may or may not affect anatomical
+        tracking, and can cause artefacts in analysis metrics such as Pixel Difference (PD)
+        \citep{Palo-MeasuringPrespeechArticulation-2019} and other analysis methods.
 
-        \begin{columns}
-          \hspace*{-.25cm}
-          \begin{column}{.3\textwidth}
-            \begin{itemize}
-            \item \cite{RastleEtAl-CharacterizingMotorExecution-2005} measured
-            delayed naming reaction times.
-            \item They report Acoustic RTs and onset durations (OD) for all
-              phonotactically legal English consonant onsets.
-            \item The inverse correlation pattern was first discovered by
-              \cite{Fowler-PerceptualCentersSpeech-1979}.
-            \end{itemize}
-          \end{column}
-          \begin{column}{.6\textwidth}
-            \kommentti{Rastle figure here.}
-            % \vspace*{.5cm}
-            % \input{figures/Rastle_ICPhS.tex}
-          \end{column}
-        \end{columns}
+
+        \kommentti{Show a previously published pd curve.}
       \end{block}
 
       \begin{block}{Materials: The Experiment} 
+        \kommentti{could show an image of the steak?}
+        \begin{figure}[!b]
+          \centering
+          \includegraphics[width=\textwidth]{../figures/steak-no-power.png}
+          % generated with
+          \caption{Panels from top to bottom: Pixel Difference (PD), Image overall
+          ultrasound intensity, Sound spectrogram, Sound waveform, and TextGrid
+          (showing only the prompt 'hold still').}
+            \label{fig:pd}
+        \end{figure}
 
-        'Simple' task of finding acoustic and movement onsets in
-        simultaneously recorded sound data and articulatory data from
-        Ultrasound Tongue Imaging (UTI).
-
-        /CVC/ and /VC/ English lexical words produced by one
-        male speaker: {\em at, eat, ought, back, beat, bought, dat, deep,
-          dot, fat, feet, fought, gap, geek, got, hat, heat, hot, cat,
-          keep, caught, lack, leap, lot, map, meet, mock, nat, neat, not,
-          pack, Pete, pop, rat, reap, rock, sat, seat, sought, shack,
-          sheet, shop, tap, teak, talk, whack, wheat,} and {\em what}.
       \end{block}
       
+      \begin{block}{Materials: The Experiment} 
+        \begin{figure}[!ht]
+          \centering
+          \includegraphics[width=.49\textwidth]{../figures/ultrasound_begin.png}
+          \includegraphics[width=.49\textwidth]{../figures/ultrasound_ramped_up.png}
+          % generated with
+          \caption{Ultrasound frames at the beginning of the recording (left) and at
+          the end of the intensity ramp (right).}
+            \label{fig:ultrasound}
+        \end{figure}
+
+      \end{block}
+
       \begin{block}{Methods: Recording and annotation}\footnotesize
         \begin{itemize}
         \item \kommentti{Say something about methods.}
