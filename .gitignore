@@ -5,7 +5,6 @@ local/
 *.markdown~
 
 ## Generated files
-poster.pdf
 *.dep
 
 ## Core latex/pdflatex and glossary auxiliary files:
